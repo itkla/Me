@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <title>中川ハンター</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://kit.fontawesome.com/cee8ce18d4.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="content">
+            <div id="bio">
+                <img src="img/profile.jpg" alt="me" id="profilepic">
+                <h1 id="hero-name"></h1>
+                <span id="descriptor"></span>
+                <p style="font-size: 150%;">
+                    <a class="fa-brands fa-instagram no-a" href="https://instagram.com/hunternakagawa" target="_blank"></a>
+                    <a class="fa-brands fa-line no-a" href="https://line.me/ti/p/eEv6U32P63" target="_blank"></a>
+                    <a class="fa-brands fa-steam no-a" href="https://steamcommunity.com/id/klaeo"></a>
+                </p>
+            </div>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var descriptor = document.getElementById('descriptor');
+        var descriptions = [];
+        
+
+        var lang = navigator.language || navigator.userLanguage;
+        switch (lang) {
+            case 'ja':
+                document.getElementById('hero-name').textContent = 'やあ、ハンターです';
+                descriptions = ['ヤッホー', 'こんにちは', '初めまして', 'おす', 'やあ'];
+                break;
+            case 'zh':
+                document.getElementById('hero-name').textContent = '你好，我是Hunter';
+                descriptions = ['你好', '我爱辣条'];
+                break;
+            default:
+                document.getElementById('hero-name').textContent = 'Hi, I\'m Hunter';
+                descriptions = ['Hey', 'Howzit', 'Sup'];
+                break;
+        }
+        function changeDescriptor() {
+            var randomIndex = Math.floor(Math.random() * descriptions.length);
+            descriptor.textContent = descriptions[randomIndex];
+        }
+        changeDescriptor();
+    </script>
+</html>

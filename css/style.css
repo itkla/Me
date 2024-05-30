@@ -1,0 +1,66 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+body {
+    font-family: "Noto Sans JP", sans-serif;
+
+    /* dotted background */
+    background-position: 2px;
+    background-image: radial-gradient(circle at 1px 1px, lightgray 1px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}
+#bio {
+    text-align: center;
+    padding: 25vh;
+    /* background-color: white; */
+}
+.no-a {
+    text-decoration: none;
+    color: black;
+
+}
+#profilepic {
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 5px dashed #fff;
+    background: linear-gradient(#fff 0 0) padding-box, linear-gradient(to bottom, #4fc3f7, #D300C5 49%, #FF7A00) border-box; 
+}
+.section-image {
+    border-radius: 30px;
+    max-width: 100%;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+.section-image:hover {
+    /* when the user hovers over an image, we want it to expand so they can see better */
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.05);
+}
+
+section {
+    /* how each "card" is formatted and designed. i wanted it to look like Polaroid prints */
+    margin: 10vh 25vw;
+    padding: 6%;
+    /* border: dotted black 2px; */
+    background-color:white;
+    border-radius: 40px;
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.1);
+
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+section:hover {
+    /* add shading underneat the cards to give them a sense of 3d realism */
+    transform: scale(1.1);
+    box-shadow: 0px 10px 20px 2px rgba(0,0,0,0.05);
+    /* give the cards a colorful outline by making the background colorful then layering white over it and put a white dotted line over what's left */
+    border: 2px dashed #fff;
+    background: linear-gradient(#fff 0 0) padding-box, linear-gradient(to bottom, #4fc3f7, #D300C5 49%, #FF7A00) border-box; 
+}
+#logo {
+    filter: invert(100%);
+}
