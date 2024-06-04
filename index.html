@@ -11,13 +11,17 @@
     <body>
         <div id="content">
             <div id="bio">
-                <img src="img/profile.jpg" alt="me" id="profilepic">
+                <div id="profilepic">
+                    <!-- <span class="image-gradient"></span> -->
+                    <img src="img/profile.jpg" alt="me" class="profileimage">
+                </div>
                 <h1 id="hero-name"></h1>
                 <span id="descriptor"></span>
-                <p style="font-size: 150%;">
+                <p id="links">
                     <a class="fa-brands fa-instagram no-a" href="https://instagram.com/hunternakagawa" target="_blank"></a>
                     <a class="fa-brands fa-line no-a" href="https://line.me/ti/p/eEv6U32P63" target="_blank"></a>
                     <a class="fa-brands fa-steam no-a" href="https://steamcommunity.com/id/klaeo"></a>
+                    <a class="fa-brands fa-github no-a" href="https://github.com/itkla"></a>
                 </p>
             </div>
         </div>
@@ -25,8 +29,6 @@
     <script type="text/javascript">
         var descriptor = document.getElementById('descriptor');
         var descriptions = [];
-        
-
         var lang = navigator.language || navigator.userLanguage;
         switch (lang) {
             case 'ja':
@@ -39,7 +41,7 @@
                 break;
             default:
                 document.getElementById('hero-name').textContent = 'Hi, I\'m Hunter';
-                descriptions = ['Hey', 'Howzit', 'Sup'];
+                descriptions = ['Hey', 'Howzit', 'Sup', 'Yo', 'Hello', 'How are you?'];
                 break;
         }
         function changeDescriptor() {
@@ -47,5 +49,15 @@
             descriptor.textContent = descriptions[randomIndex];
         }
         changeDescriptor();
+
+        document.addEventListener("keypress", function onEvent(event) {
+            switch (event.key) {
+                case ' ':
+                    changeDescriptor();
+                    break;
+                case 'Enter':
+                    window.open("https://discord.gg/ZNVwebBydD", '_blank').focus();
+            }
+        })
     </script>
 </html>

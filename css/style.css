@@ -10,6 +10,11 @@ body {
     background-attachment: fixed;
 }
 #bio {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     text-align: center;
     padding: 25vh;
     /* background-color: white; */
@@ -20,13 +25,27 @@ body {
 
 }
 #profilepic {
-    width: 150px;
-    height: 150px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 150px;
+    max-height: 150px;
     padding: 5px;
     border-radius: 50%;
     border: 5px dashed #fff;
-    background: linear-gradient(#fff 0 0) padding-box, linear-gradient(to bottom, #4fc3f7, #D300C5 49%, #FF7A00) border-box; 
+    background: linear-gradient(#fff 0 0) padding-box, linear-gradient(to bottom right, #4fc3f7, #D300C5 49%, #FF7A00) border-box; 
+    background-size: 200% 200%;
+    animation: shift 5s ease infinite;
+    -webkit-animation: shift 5s ease infinite;
+    -moz-animation: shift 5s ease infinite;
+    /* animation: spin 5s linear infinite; */
+    .profileimage {
+        width: 150px;
+        height: 150px;
+        /* padding: 5px; */
+        border-radius: 50%;
+    }
 }
+
 .section-image {
     border-radius: 30px;
     max-width: 100%;
@@ -63,4 +82,31 @@ section:hover {
 }
 #logo {
     filter: invert(100%);
+}
+
+#links {
+    font-size: 150%;
+    letter-spacing: 5%;
+}
+
+@keyframes shift {
+    0% { 
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+@-webkit-keyframes shift {
+    0% { background-position: 0% 0%}
+    50% { background-position: 100% 100%}
+    100% { background-position: 0% 0%}
+}
+@-moz-keyframes shift {
+    0% { background-position: 0% 0%}
+    50% { background-position: 100% 100%}
+    100% { background-position: 0% 0%}
 }
