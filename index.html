@@ -9,6 +9,17 @@
         <script src="https://kit.fontawesome.com/cee8ce18d4.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-header-str">About me</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-body-str">TESTTESTTEST</p>
+                </div>
+            </div>
+        </div>
         <div id="content">
             <div id="bio">
                 <div id="profilepic">
@@ -23,25 +34,42 @@
                     <a class="fa-brands fa-steam no-a" href="https://steamcommunity.com/id/klaeo"></a>
                     <a class="fa-brands fa-github no-a" href="https://github.com/itkla"></a>
                 </p>
+                <button id="openModal">?</button>
             </div>
         </div>
     </body>
     <script type="text/javascript">
         var descriptor = document.getElementById('descriptor');
         var descriptions = [];
-        var lang = navigator.language || navigator.userLanguage;
+        var urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('lang')) {
+            var lang = urlParams.get('lang');
+        } else {
+            var lang = navigator.language || navigator.userLanguage;
+        }
+        // var lang = navigator.language || navigator.userLanguage;
+        // console.log(lang);
         switch (lang) {
-            case 'ja':
+            case ('ja' || 'ja-JP'):
+                console.log('Found language: ja');
                 document.getElementById('hero-name').textContent = 'やあ、ハンターです';
-                descriptions = ['ヤッホー', 'こんにちは', '初めまして', 'おす', 'やあ'];
+                descriptions = ['ヤッホー', 'こんにちは', '初めまして', 'おす', 'やあ', '元気？', 'どうも', 'よろしくね', 'おはよう', 'こんばんは'];
+                document.getElementById('modal-header-str').textContent = '自己紹介';
+                document.getElementById('modal-body-str').textContent = 'すごく怠惰なのに、すごく忙しい。暇があれば、ゲームとか撮影とか料理などをしてます。よろしくね';
                 break;
-            case 'zh':
+            case ('zh' || 'zh-CN'):
+                console.log('Found language: zh');
                 document.getElementById('hero-name').textContent = '你好，我是Hunter';
                 descriptions = ['你好', '我爱辣条'];
+                document.getElementById('modal-header-str').textContent = '关于我';
+                document.getElementById('modal-body-str').textContent = '我是一个懒人，但是我很忙。我喜欢玩游戏，拍照，做饭等等。请多关照';
                 break;
             default:
+                console.log('Found language: en');
                 document.getElementById('hero-name').textContent = 'Hi, I\'m Hunter';
                 descriptions = ['Hey', 'Howzit', 'Sup', 'Yo', 'Hello', 'How are you?'];
+                document.getElementById('modal-header-str').textContent = 'About me';
+                document.getElementById('modal-body-str').textContent = 'I\'m an incredibly lazy person, but I\'m also very busy. I like to play games, take photos, cook, yada yada yada.';
                 break;
         }
         function changeDescriptor() {
@@ -56,8 +84,28 @@
                     changeDescriptor();
                     break;
                 case 'Enter':
-                    window.open("https://discord.gg/ZNVwebBydD", '_blank').focus();
+                    if (confirm('Discordに参加しませんか？')) {
+                        window.open("https://discord.gg/ZNVwebBydD", '_blank').focus();
+                        break;
+                    } else {
+                        break;
+                    }
+                    
             }
         })
+        var modal = document.getElementById('modal');
+        var openModal = document.getElementById('openModal');
+        var close = document.getElementsByClassName('close')[0];
+        openModal.onclick = function() {
+            modal.style.display = 'block';
+        }
+        close.onclick = function() {
+            modal.style.display = 'none';
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </html>
